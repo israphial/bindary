@@ -1,14 +1,5 @@
 export const presetHotkeysArray = [
   {
-    title: "google Search",
-    keyBind: "s",
-    description: "Google search",
-    action: {
-      type: "Javascript event",
-      body: "const searchInput = prompt('Enter your search and press enter');window.open(`http://www.google.com/search?q=${searchInput}`)",
-    },
-  },
-  {
     title: "New Keybind",
     keyBind: "n",
     description: "Add new keybind",
@@ -150,18 +141,6 @@ export const presetHotkeysArray = [
     description: "Code submenu",
     subHotkeys: [
       {
-        title: "Practicum",
-        keyBind: "p",
-        description: "Practicum homepage",
-        link: "https://practicum.yandex.com/profile/web/",
-      },
-      {
-        title: "Practicum student resources",
-        keyBind: "s",
-        description: "Practicum student resources",
-        link: "https://www.notion.so/Practicum-by-Yandex-Student-Guide-2919ba4a88004c0ea7884873d4dc21bf",
-      },
-      {
         title: "Github",
         keyBind: "g",
         description: "Github",
@@ -247,12 +226,6 @@ export const presetHotkeysArray = [
     keyBind: "u",
     description: "Utilities submenu",
     subHotkeys: [
-      {
-        title: "Pomodoro timer",
-        keyBind: "t",
-        description: "Tomato-timer homepage",
-        link: "https://tomato-timer.com/",
-      },
       {
         title: "Coolors.co app",
         keyBind: "c",
