@@ -1,0 +1,36 @@
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.content__list-item-hotkey {
+  /*the ball*/
+  position: absolute;
+  z-index: 3;
+  background-color: #23874b;
+  border: 5px solid #202020;
+  width: 36px;
+  height: 36px;
+  top: -12%;
+  left: -12px;
+  border-radius: 27px;
+  text-align: center;
+  line-height: 34px;
+  font-weight: bold;
+  opacity: 0;
+  animation: 0.3s ease-out 1 1.5s forwards slideInFromLeft,
+    0.3s ease-in 1 1.5s forwards fadeIn;
+}

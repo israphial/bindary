@@ -1,0 +1,14 @@
+.navbar__link {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 0 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.navbar__link:hover {
+  color: white;
+  background-color: black;
+}

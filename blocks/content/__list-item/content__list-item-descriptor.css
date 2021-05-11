@@ -1,0 +1,6 @@
+.content__list-item-descriptor {
+  /* the descriptor span; most of the body of the list*/
+  position: relative;
+  margin-left: 32px;
+  color: black;
+}

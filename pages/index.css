@@ -1,0 +1,22 @@
+/* blocks */
+
+@import url("../vendor/normalize.css");
+@import url("../blocks/page/page.css");
+@import url("../blocks/root/root.css");
+@import url("../blocks/header/header.css");
+@import url("../blocks/navbar/navbar.css");
+@import url("../blocks/main/main.css");
+@import url("../blocks/footer/footer.css");
+@import url("../blocks/content/content.css");
+@import url("../blocks/popup/popup.css");
+@import url("../blocks/form/form.css");
+@import url("../blocks/timer-container/timer-container.css");
+@import url("../blocks/timer/timer.css");
+
+/* elements */
+
+/* modifiers and mixes */
+
+@import url("../blocks/form/__error/_active/form__error_active.css");
+@import url("../blocks/template/_type/template_type_timer.css");
+@import url("../blocks/popup/popup_visible.css");

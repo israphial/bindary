@@ -1,0 +1,10 @@
+@import url("__header/content__header.css");
+@import url("__description/content__description.css");
+@import url("__list/content__list.css");
+@import url("__list-item/content__list-item.css");
+@import url("__list-item/content__list-item-descriptor.css");
+@import url("__list-item/content__list-item-hotkey.css");
+
+.content {
+  margin: 0;
+}
