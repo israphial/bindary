@@ -52,10 +52,17 @@
                     <span class="form__error" id="form__input_type_add-keybind-title-error"></span>
                     <input type="text" class="form__input form__input_type_add-keybind-description" id="form__input_type_add-keybind-description" placeholder="Description" name="description" required>
                     <span class="form__error" id="form__input_type_add-keybind-description-error"></span>
-                    <label for="action-button" class="form__radio-label">Timer</label>
+                    <label for="action-select" class="form__label form__label_type_select">Special action: </label>
+                    <select id="action-select" name="action" class="form__input form__input_type_add-keybind-action">
+                        <option value="none" id="action-select-none">None</option>
+                        <option value="link" id="action-select-link">Open Link</option>
+                        <option value="timer" id="action-select-timer">Timer</option>
+                        <option value="test" id="action-select-test">Test</option>
+                    </select>
+                    <!-- <label for="action-button" class="form__radio-label">Timer</label>
                     <input type="radio" name="action" id="action-button" class="form__input form__input_type_radio form__input_type-add-keybind-action" value="timer">
                     <label for="placeholder-button" class="form__radio-label">Placeholder</label>
-                    <input type="radio" name="action" id="placeholder-button" class="form__input form__input_type_radio form__input_type-add-keybind-placeholder" value="placeholder">
+                    <input type="radio" name="action" id="placeholder-button" class="form__input form__input_type_radio form__input_type-add-keybind-placeholder" value="placeholder"> -->
                     <button class="form__save-button form__save-button_type_add-keybind" type="submit" aria-label="Save">Save</button>
                 </form>
             </div>

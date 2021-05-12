@@ -22,17 +22,16 @@ export class PopupWithForm {
       // get the input values at the time of submission and pipe them into the submission callback to make a new keybind
       this._inputList.forEach((inputField) => {
         if (
-          inputField.type == "url" &&
-          !inputField.value.includes("https://" || "http://")
+          inputField.type == "select-one" &&
+          inputField.querySelector("#action-select-none").selected
         ) {
-          // validate that the url contains necessary protocol and add it if it doesn't
-          inputField.value = "https://" + inputField.value;
-        }
-        if (inputField.type == "radio" && !inputField.checked) {
-          // There's no action being tied to this key. Do not create an action property.
+          // There's no action being tied to this key. Do not create an action property. !!!change this once 'link' is an action type!!!
           return; // exit this iteration so that no action keypair is put into the keybind object.
         }
-        if (inputField.type == "radio" && inputField.checked) {
+        if (
+          inputField.type == "select-one" &&
+          inputField.querySelector("#action-select-timer").selected
+        ) {
           // action is being tied to this key.
           delete this._inputValues.link;
           this._inputValues[inputField.name] = {
@@ -41,7 +40,7 @@ export class PopupWithForm {
           };
           return; // break out of this iteration so that the normal object mapping doesn't happen
           // make the action sub-object and put type: ${inputField.value} in it, so that you have an action object, then in that action obj, a type key+value.
-        }
+        } // otherwise:
         this._inputValues[inputField.name] = inputField.value;
       });
     }
