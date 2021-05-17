@@ -15,9 +15,9 @@
         <header class="header">
             <nav class="navbar">
                 <ul class="navbar__links">
-                    <li class="navbar__item"><a href="#" class="navbar__link">Landing</a></li>
-                    <li class="navbar__item"><a href="#" class="navbar__link">Wiki</a></li>
-                    <li class="navbar__item"><a href="#" class="navbar__link">Pages</a></li>
+                    <li class="navbar__item"><a href="#" class="navbar__link" tabindex=0>Landing</a></li>
+                    <li class="navbar__item"><a href="#" class="navbar__link" tabindex=0>Wiki</a></li>
+                    <li class="navbar__item"><a href="#" class="navbar__link" tabindex=0>Pages</a></li>
                 </ul>
             </nav>
         </header>
@@ -25,63 +25,71 @@
         <main class="main">
             <section class="content">
                 <h1 class="content__header">The Bindary</h1>
-                <p class="content__description">Press the listed keys to navigate to various pages, or open submenus. Esc to close a submenu.</p>
+                <p class="content__description">Press the listed keys to perform actions, or open submenus. Esc to close a submenu. Tab and shift+tab navigates between buttons.</p>
                 <ul class="content__list">
-
                 </ul>
             </section>
 
             <section class="timer-container">
             </section>
 
-            <div class="popup popup_type_information">
-                <button class="popup__close-button"></button>
-                <h2 class="popup__header"></h2>
-            </div>
-
-            <div class="popup popup_type_add-keybind">
-                <button class="popup__close-button"></button>
-                <h2 class="popup__header">Add Keybind</h2>
-                <p class="popup__description">Add keybind information - lowercase letters only (for now)</p>
-                <form action="#" name="add-keybind" class="form form_type_add-keybind" novalidate>
-                    <input type="text" class="form__input form__input_type_add-keybind-key" id="form__input_type_add-keybind-key" placeholder="Key" name="keyBind" required maxlength=1>
-                    <span class="form__error" id="form__input_type_add-keybind-key-error"></span>
-                    <input type="url" class="form__input form__input_type_add-keybind-link" id="form__input_type_add-keybind-link" placeholder="Link" name="link" required minlength=2 maxlength=512>
-                    <span class="form__error" id="form__input_type_add-keybind-link-error"></span>
-                    <input type="text" class="form__input form__input_type_add-keybind-title" id="form__input_type_add-keybind-title" placeholder="Title" name="title" required minlength=2 maxlength=48>
-                    <span class="form__error" id="form__input_type_add-keybind-title-error"></span>
-                    <input type="text" class="form__input form__input_type_add-keybind-description" id="form__input_type_add-keybind-description" placeholder="Description" name="description" required>
-                    <span class="form__error" id="form__input_type_add-keybind-description-error"></span>
-                    <label for="action-select" class="form__label form__label_type_select">Special action: </label>
-                    <select id="action-select" name="action" class="form__input form__input_type_add-keybind-action">
-                        <option value="none" id="action-select-none">None</option>
-                        <option value="link" id="action-select-link">Open Link</option>
-                        <option value="timer" id="action-select-timer">Timer</option>
-                        <option value="test" id="action-select-test">Test</option>
-                    </select>
-                    <!-- <label for="action-button" class="form__radio-label">Timer</label>
-                    <input type="radio" name="action" id="action-button" class="form__input form__input_type_radio form__input_type-add-keybind-action" value="timer">
-                    <label for="placeholder-button" class="form__radio-label">Placeholder</label>
-                    <input type="radio" name="action" id="placeholder-button" class="form__input form__input_type_radio form__input_type-add-keybind-placeholder" value="placeholder"> -->
-                    <button class="form__save-button form__save-button_type_add-keybind" type="submit" aria-label="Save">Save</button>
-                </form>
-            </div>
-
-            <div class="popup popup_type_add-timer">
-                <button class="popup__close-button"></button>
-                <h2 class="popup__header">Add Timer</h2>
-                <form action="#" class="form form_type_add-timer" novalidate>
-                    <input type="number" class="form__input form__input_type_add-timer" id="form__input_type_add-timer" placeholder="minutes" name="minutes" required maxlength=4>
-                    <span class="form__error" id="form__input_type_add-timer-error"></span>
-                    <button class="form__save-button form__save-button_type_add-timer" type="submit" aria-label="Save">Start</button>
-                </form>
-            </div>
-
         </main>
 
         <footer class="footer">
         </footer>
+        <div class="popup__overlay">
+        <div class="popup popup_type_information">
+            <span class="popup__button-span">Esc</span>
+            <button class="popup__close-button"></button>
+            <h2 class="popup__header"></h2>
+        </div>
 
+        <div class="popup popup_type_delete">
+            <span class="popup__button-span">Esc</span>
+            <button class="popup__close-button"></button>
+            <h2 class="popup__header">Delete a Keybind</h2>
+            <span class="popup__error"></span>
+            <form action="#" class=" form form_type_delete-keybind">
+                <select name="delete-keybind-select" id="delete-keybind-select" class="form__input form__input_type_delete-keybind-select"></select>
+                <button class="form__save-button form__save-button_type_delete-keybind" type="submit" aria-label="Save">Delete</button>
+            </form>
+        </div>
+
+        <div class="popup popup_type_add-keybind">
+            <span class="popup__button-span">Esc</span>
+            <button class="popup__close-button"></button>
+            <h2 class="popup__header">Add Keybind</h2>
+            <p class="popup__description">Add keybind information - lowercase letters only (for now)</p>
+            <form action="#" name="add-keybind" class="form form_type_add-keybind" novalidate>
+                <input type="text" class="form__input form__input_type_add-keybind-key" id="form__input_type_add-keybind-key" placeholder="Key" name="keyBind" required maxlength=1>
+                <span class="form__error" id="form__input_type_add-keybind-key-error"></span>
+                <input type="text" class="form__input form__input_type_add-keybind-link" id="form__input_type_add-keybind-link" placeholder="Link" name="link" required minlength=2 maxlength=512>
+                <span class="form__error" id="form__input_type_add-keybind-link-error"></span>
+                <input type="text" class="form__input form__input_type_add-keybind-title" id="form__input_type_add-keybind-title" placeholder="Title" name="title" required minlength=2 maxlength=48>
+                <span class="form__error" id="form__input_type_add-keybind-title-error"></span>
+                <input type="text" class="form__input form__input_type_add-keybind-description" id="form__input_type_add-keybind-description" placeholder="Description" name="description" required>
+                <span class="form__error" id="form__input_type_add-keybind-description-error"></span>
+                <label for="action-select" class="form__label form__label_type_select">Special action: </label>
+                <select id="action-select" name="action" class="form__input form__input_type_add-keybind-action" required>
+                    <option value="link" id="action-select-link">Open Link</option>
+                    <option value="timer" id="action-select-timer">Timer</option>
+                    <option value="test" id="action-select-test">Test</option>
+                </select>
+                <button class="form__save-button form__save-button_type_add-keybind" type="submit" aria-label="Save">Save</button>
+            </form>
+        </div>
+
+        <div class="popup popup_type_add-timer">
+            <span class="popup__button-span">Esc</span>
+            <button class="popup__close-button"></button>
+            <h2 class="popup__header">Add Timer</h2>
+            <form action="#" class="form form_type_add-timer" novalidate>
+                <input type="number" class="form__input form__input_type_add-timer" id="form__input_type_add-timer" placeholder="minutes" name="minutes" required maxlength=4>
+                <span class="form__error" id="form__input_type_add-timer-error"></span>
+                <button class="form__save-button form__save-button_type_add-timer" type="submit" aria-label="Save">Start</button>
+            </form>
+        </div>
+    </div>
         <template class="template_type_popup">
         </template>
 

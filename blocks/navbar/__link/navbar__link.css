@@ -12,3 +12,8 @@
   color: white;
   background-color: black;
 }
+
+.navbar__link:focus {
+  color: white;
+  background-color: black;
+}

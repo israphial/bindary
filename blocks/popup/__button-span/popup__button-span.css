@@ -1,0 +1,7 @@
+.popup__button-span {
+  color: black;
+  font-weight: 700;
+  position: absolute;
+  top: 1px;
+  right: 25px;
+}

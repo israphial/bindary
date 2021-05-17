@@ -10,7 +10,8 @@
 
 .form__input:focus {
   outline: none;
-  border: 1px solid green;
+  border: 1px solid #23874b;
+  box-shadow: 0 0 2px 1px #23874b;
 }
 
 .form__input::placeholder {

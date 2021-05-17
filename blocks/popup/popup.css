@@ -1,9 +1,12 @@
 @import url("__close-button/popup__close-button.css");
 @import url("__header/popup__header.css");
 @import url("__description/popup__description.css");
+@import url("__button-span/popup__button-span.css");
+@import url("__error/popup__error.css");
+@import url("__overlay/popup__overlay.css");
 
 .popup {
-  display: none; /*filled by JS and unhidden when needed*/
+  display: flex; /*filled by JS and unhidden when needed*/
   position: fixed;
   top: 50%;
   left: 50%;

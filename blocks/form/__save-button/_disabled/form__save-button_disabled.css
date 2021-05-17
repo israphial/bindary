@@ -1,0 +1,6 @@
+.form__save-button_disabled {
+  cursor: not-allowed;
+  color: gray;
+  background-color: white;
+  border: 1px solid gray;
+}

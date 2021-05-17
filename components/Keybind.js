@@ -22,6 +22,10 @@ export class Keybind {
     if (typeof actionCallback !== "undefined") {
       this._actionCallback = actionCallback;
     }
+    if (keybindObject.protected) {
+      this.protected = true;
+    }
+    this._overlay = document.querySelector(".popup__overlay");
     this._isActivated = this._isActivated.bind(this);
     this._submenuBindsChecker = this._submenuBindsChecker.bind(this);
     this._setSubmenuBinds = this._setSubmenuBinds.bind(this);
@@ -60,7 +64,7 @@ export class Keybind {
   _isActivated(evt) {
     if (evt.key === this.keybind) {
       if (this._action !== undefined) {
-        this._handleAction();
+        this._actionCallback(this._action);
       }
       if (this._subHotkeys !== undefined) {
         this._handleSubmenu();
@@ -80,11 +84,6 @@ export class Keybind {
     }
   }
 
-  _handleAction() {
-    this._actionCallback(this._action);
-    // this whole thing can probably be abstracted so that if a keybind object HAS the action object at all, call the action callback and let it do this stuff.
-  }
-
   setActionCallback(actionCallback) {
     this._actionCallback = actionCallback;
   }
@@ -101,17 +100,23 @@ export class Keybind {
     document.removeEventListener("keyup", this._submenuBindsChecker);
   }
 
-  openPopup() {
-    const newSubmenu = this._getPopup();
+  setEventListeners() {
+    this._closeButton = this._newSubmenu.querySelector(".popup__close-button");
+    this._closeButton.addEventListener("click", this.closePopup.bind(this));
+  }
 
-    newSubmenu.querySelector(".popup__header").textContent = this._title;
+  openPopup() {
+    this._newSubmenu = this._getPopup();
+    this._newSubmenu.querySelector(".popup__header").textContent = this._title;
     this._subHotkeys.forEach((description) => {
       const newDescriptor = document.createElement("p");
       newDescriptor.classList.add("popup__description");
       newDescriptor.textContent = `${description.keyBind}: ${description.description}`;
-      newSubmenu.append(newDescriptor);
+      this._newSubmenu.append(newDescriptor);
     });
-    newSubmenu.classList.add("popup_visible");
+    this._newSubmenu.classList.add("popup_visible");
+    this._overlay.classList.add("popup__overlay_visible");
+    this.setEventListeners();
   }
 
   closePopup() {
@@ -122,5 +127,6 @@ export class Keybind {
       .forEach((item) => item.remove());
 
     submenuPopup.classList.remove("popup_visible");
+    this._overlay.classList.remove("popup__overlay_visible");
   }
 }

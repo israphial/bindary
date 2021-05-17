@@ -9,3 +9,8 @@
   border-radius: 15px;
   cursor: pointer;
 }
+
+.form__save-button:focus {
+  outline: 1px solid #23874b;
+  outline-offset: 5px;
+}

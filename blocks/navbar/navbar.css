@@ -1,7 +1,6 @@
 @import url(__links/navbar__links.css);
 @import url(__item/navbar__item.css);
 @import url(__link/navbar__link.css);
-@import url(__link/navbar__link_active.css);
 
 .navbar {
   display: flex;

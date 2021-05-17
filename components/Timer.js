@@ -15,8 +15,6 @@ export class Timer {
     return timerElement;
   }
 
-  _setTimer() {}
-
   _startTimer() {
     let timerDisplay = this._timer.querySelector(".timer__duration");
     let timerDuration = this._duration; // in minutes
@@ -68,6 +66,10 @@ export class Timer {
     this._timer = this._getTemplate();
     this._timer.style.display = "flex";
     this._timerContainer.append(this._timer);
+    this._timer
+      .querySelector(".timer__delete-button")
+      .setAttribute("tabindex", 0);
+    this._timerContainer.setAttribute("tabindex", 0);
     this._startTimer();
     // makes + fills the window that has the timer info, delete btn
   }
@@ -75,6 +77,9 @@ export class Timer {
   _deleteDisplay() {
     this._timer.remove();
     clearInterval(this._timerInterval);
+    if (this._timerContainer.hasChildNodes()) {
+      this._timerContainer.removeAttribute("tabindex");
+    }
     // removes the window if this timer is deleted
   }
 

@@ -3,6 +3,7 @@ import { Keybind } from "../components/Keybind.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { Validator } from "../components/Validator.js";
 import { Timer } from "../components/Timer.js";
+import { PopupDelete } from "../components/PopupDelete.js";
 
 /*
     TODO:
@@ -41,6 +42,7 @@ import { Timer } from "../components/Timer.js";
 const currentInstantiatedKeybinds = [];
 const keybindInformationContainer = document.querySelector(".content__list");
 const addKeybindForm = document.querySelector(".form_type_add-keybind");
+const addTimerForm = document.querySelector(".form_type_add-timer");
 const timerContainer = document.querySelector(".timer-container");
 const timerTemplate = document.querySelector(".template_type_timer");
 
@@ -77,9 +79,58 @@ const actionCallback = (actionInformation) => {
     bodyFunction();
   }
   if (actionObject.type == "timer") {
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission();
+    }
     addTimerPopup.openPopup();
     // TODO: add validator when it's ready
   }
+  if (actionObject.type == "delete") {
+    deleteKeybindPopup.setCurrentKeybinds(currentInstantiatedKeybinds);
+    deleteKeybindPopup.openPopup();
+  }
+};
+
+const deleteKeybindCallback = (keybindObject) => {
+  const listItems = document.querySelectorAll(".content__list-item-hotkey");
+  // receives the assoc keybind object from PopupDelete, use this to delete the assoc. keybind, remove from arrays, edit cached array, remove from dom, remove listener for this keybind
+  if (keybindObject !== undefined) {
+    const keybindToDelete = keybindObject;
+
+    keybindToDelete.removeAllKeybindListeners();
+    const removedKeybindIndex =
+      currentInstantiatedKeybinds.indexOf(keybindToDelete);
+    currentInstantiatedKeybinds.splice(removedKeybindIndex, 1);
+
+    const targetIndex = consts.presetHotkeysArray.findIndex(
+      (keybindArrObject) => {
+        return keybindArrObject.keyBind == keybindObject.keybind;
+      }
+    );
+    consts.presetHotkeysArray.splice(targetIndex, 1);
+
+    listItems.forEach((listItem) => {
+      if (
+        listItem.textContent == keybindToDelete.keybind.toUpperCase() ||
+        listItem.textContent == keybindToDelete.keybind
+      ) {
+        listItem.parentNode.remove();
+      }
+    });
+  } else {
+    console.log(
+      `Error: keybindObject is an unexpected value (should be equal to a Keybind object): ${keybindObject}`
+    );
+  }
+  /*
+    1. delete keybind object from currentInstantiatedKeybinds - done
+    2. delete keybind object from consts.presetHotkeysArray - done
+    3. edit cached array
+    4. remove listener for this keybind - done
+    5. delete this keybind instance from memory - done?
+    6. remove associated list item from dom - done
+    7. send updated arrays to wherever they're needed in order to "reload" things
+  */
 };
 
 const renderInformation = ({ keybindObject }) => {
@@ -111,9 +162,9 @@ const currentKeybindKeys = () => {
 //---------------------------------
 
 const newKeybindValidator = new Validator(addKeybindForm);
+const newTimerValidator = new Validator(addTimerForm);
 newKeybindValidator.enableLiveValidation();
-
-Notification.requestPermission();
+newTimerValidator.enableLiveValidation();
 
 const addKeybindPopup = new PopupWithForm(
   consts.newKeybindPopup,
@@ -152,6 +203,18 @@ const addTimerPopup = new PopupWithForm(
   restoreOtherKeybinds
 );
 addTimerPopup.setEventListeners();
+
+const deleteKeybindPopup = new PopupDelete(
+  consts.deleteKeybindPopup,
+  currentInstantiatedKeybinds,
+  clearOtherKeybinds,
+  restoreOtherKeybinds,
+  (keybindObject) => {
+    deleteKeybindCallback(keybindObject);
+    deleteKeybindPopup.closePopup();
+  }
+);
+deleteKeybindPopup.setEventListeners();
 
 function instantiatePresetKeybinds() {
   consts.presetHotkeysArray.forEach((keybindObject) => {

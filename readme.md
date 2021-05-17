@@ -42,28 +42,23 @@ The Bindary</h1>
 
 <h2>Planned Features</h2>
 <ul>
-    <li>New Note action - allows the user to create a note that displays on the screen and is delete-able via a button; may also be editable and should be stored in cache</li>
+    <li>Adding lots of keybinds will make list items wrap and group horizontally instead of always stacking vertically in 1 column; more than 2 columns will cause each column to reduce its width appropriately in order to fit the new column</li>
     <li>Ability to create and customize your own submenus</li>
     <li>App options bound to 'o', opens the options menu allowing things like factory reset</li>
-    <li>Ability to delete keybinds, using the 'del' key</li>
     <li>Store the keybind information in cache, so that each user "keeps" their own keybinds persistent through different sessions</li>
     <li>Ability to restore to the preset/default keybinds, like a "factory reset" option</li>
-    <li>Arrow keys will allow the user to cycle between keybinds and notes and delete the selected item</li>
     <li>First visit popups showing the user how to use the tool</li>
-    <li>Non-closable popup that displays on mobile devices informing user that this app is built for computers and will not function on their device</li>
+    <li>Popup that displays on mobile devices informing user that this app is built for computers and may not function properly on their device</li>
     <li>"Haptic animations" - user interaction with the page performs visual cues. Eg., pressing a listed key flashes the associated list descriptor</li>
+    <li>Footer with links to github repo and other projects</li>
 </ul>
 
 <h2>Known Issues</h2>
     <ul>
-        <li>The close buttons for popups do not work</li>
         <li>Giving the timer input non-number values will still create a timer instead of not allowing non-numbers (need to add live validation to this form)</li>
         <li>Giving the timer decimals will round the timer down to the nearest minute instead of handling for seconds</li>
-        <li>Header navbar links do nothing right now + are not navigable by pressing the tab key</li>
-        <li>The popups with forms aren't focusable/navigable via the tab key if the user unfocuses the popup after opening it, the user has to manually click back into one of the inputs</li>
-        <li>Live form validation doesn't actually stop form submission when there's an invalid form input value right now</li>
+        <li>Header navbar links lead nowhere (placeholders)</li>
+        <li>Live form validation isn't enabled fully (won't stop the user from submitting an invalid form)</li>
         <li>Giving the link field a link without 'http://' or 'https://' and then opening that link will open to a null page, a protocol needs to be appended to the address internally if there isn't one</li>
-        <li>Popup animations don't work currently, the code is there but the animations don't fire</li>
         <li>Popup styles haven't been updated to match the new global theme</li>
-        <li>Page asks for notification permission on page load instead of when the user tries to set a timer for the first time (causes console warning)</li>
     </ul>

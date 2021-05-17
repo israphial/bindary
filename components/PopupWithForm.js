@@ -11,7 +11,8 @@ export class PopupWithForm {
     this._enableAllKeybindsCallback = enableAllKeybindsCallback;
 
     this._form = this._popupSelector.querySelector(".form");
-
+    this._overlay = document.querySelector(".popup__overlay");
+    this._saveButton = this._form.querySelector(".form__save-button");
     this._handleEscPressed = this._handleEscPressed.bind(this);
   }
 
@@ -23,10 +24,9 @@ export class PopupWithForm {
       this._inputList.forEach((inputField) => {
         if (
           inputField.type == "select-one" &&
-          inputField.querySelector("#action-select-none").selected
+          !inputField.querySelector("#action-select-link")
         ) {
-          // There's no action being tied to this key. Do not create an action property. !!!change this once 'link' is an action type!!!
-          return; // exit this iteration so that no action keypair is put into the keybind object.
+          // deprecate this section
         }
         if (
           inputField.type == "select-one" &&
@@ -40,7 +40,8 @@ export class PopupWithForm {
           };
           return; // break out of this iteration so that the normal object mapping doesn't happen
           // make the action sub-object and put type: ${inputField.value} in it, so that you have an action object, then in that action obj, a type key+value.
-        } // otherwise:
+        }
+
         this._inputValues[inputField.name] = inputField.value;
       });
     }
@@ -48,7 +49,17 @@ export class PopupWithForm {
     if (this._popupSelector.classList.contains("popup_type_add-timer")) {
       this._inputValues = this._inputList[0].value;
     }
-    return this._inputValues;
+
+    if (this._inputValues.hasOwnProperty("link")) {
+      if (
+        !this._inputValues.link.toString().toLowerCase().includes("http://") &&
+        !this._inputValues.link.toString().toLowerCase().includes("https://")
+      ) {
+        this._inputValues.link = "http://" + this._inputValues.link;
+      } // check if link value has http:// or https:// in it and prepend http:// if it doesn't
+    }
+
+    return this._inputValues; // end of method
   }
 
   _handleEscPressed(evt) {
@@ -58,7 +69,10 @@ export class PopupWithForm {
   }
 
   setEventListeners() {
-    // add functionality to the close button here too
+    this._closeButton = this._popupSelector.querySelector(
+      ".popup__close-button"
+    );
+    this._closeButton.addEventListener("click", this.closePopup.bind(this));
 
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
@@ -68,14 +82,22 @@ export class PopupWithForm {
 
   openPopup() {
     this._popupSelector.classList.add("popup_visible");
+    this._overlay.classList.add("popup__overlay_visible");
+    this._popupSelector.setAttribute("tabindex", 0);
+    this._closeButton.setAttribute("tabindex", 0);
     this._disableAllKeybindsCallback();
     document.addEventListener("keyup", this._handleEscPressed);
+    this._saveButton.disabled = true;
+    this._saveButton.classList.add("form__save-button_disabled");
     this._form.querySelector(".form__input").focus();
   }
 
   closePopup() {
     this._form.reset();
     this._popupSelector.classList.remove("popup_visible");
+    this._overlay.classList.remove("popup__overlay_visible");
+    this._popupSelector.removeAttribute("tabindex");
+    this._closeButton.removeAttribute("tabindex");
     document.removeEventListener("keyup", this._handleEscPressed);
     this._enableAllKeybindsCallback();
   }
