@@ -18,13 +18,12 @@ The Bindary</h1>
         <li>Start a New Timer</li>
         <li>Rebind Timer Key</li>
     </ul>
-    I have plans to create more actions, such as creating notes that will be displayed in a note container on the page, or opening a popup that displays the weather at your current location. There will likely be more actions in the Chrome extension version, as there's a lot that a user may want to do on any given page. 
+    I have plans to create more user-bindable actions and features, some of which are listed below, in the Planned Features section. There will likely be more actions in the Chrome extension version, as there's a lot that a user may want to do on any given page. 
 </p>
 
 <p>
-    This release is a VERY early version of a personal project I'm considering making into a portfolio project. It is still actively being developed.
-    This was published for peer review of some sections, and is not representative of the tool overall. 
-    This stage is a proof-of-concept. Many features are incomplete or buggy and the styling is inconsistent. 
+    This release is a VERY early version! It is still actively being developed and improved. 
+    Some features may be incomplete or buggy, and the code is inconsistent in many places. 
 </p>
 
 <p>
@@ -36,8 +35,8 @@ The Bindary</h1>
 
 <p>
     Pressing one of the keys on the displayed list will perform the described task. 
-    Items that contain "submenu" or describe multiple things will open a submenu. Pressing one of the listed keys in that submenu will open the associated link. For instance, pressing "h" will open the Utilities submenu, showing you new shortcuts. You can press "c" to open coolors.co in a new tab. If you wish to close a submenu, press the esc key. 
-    Pressing "n" will let you create a brand new keybind of your own, allowing you to set a key to a link, or to an action. At this time, actions other than link and new timer key have been disabled for the public deployment version. 
+    Items that contain "submenu" or describe multiple things will open a submenu. Pressing one of the listed keys in that submenu will open the associated link. If you wish to close a submenu, press the esc key. 
+    Pressing "n" will let you create a brand new keybind of your own, allowing you to set a key to a link, or to an action.
 </p>
 
 <h2>Planned Features</h2>
@@ -46,7 +45,7 @@ The Bindary</h1>
     <li>Ability to restore to the preset/default keybinds, in options menu</li>
     <li>Store the keybind information in cache, so that each user "keeps" their own keybinds persistent through different sessions</li>
     <li>New action type: Cascade. Cascade allows the user to tie more than one action to a single keybind, causing a "cascade" of actions</li>
-    <li>Allow existing keybinds to be rebound to new keys</li>
+    <li>Allow existing keybinds to be rebound to new keys (in options)</li>
     <li>First visit popups showing the user how to use the tool</li>
     <li>Popup that displays on mobile devices informing user that this app is built for computers and may not function properly on their device</li>
     <li>"Haptic animations" - user interaction with the page performs visual cues. Eg., pressing a listed key flashes the associated list descriptor</li>
@@ -66,6 +65,6 @@ The Bindary</h1>
         <li>Giving the timer decimals will round the timer down to the nearest minute instead of handling for seconds</li>
         <li>Header navbar links lead nowhere (placeholders)</li>
         <li>Some popup styles haven't been updated to match the new global theme</li>
-        <li>number row and numpad return the same key when they should return different keys (see https://keycode.info/ and keyCodes for numpad keys)</li>
+        <li>Number row and numpad return the same key when they should return different keys (see https://keycode.info/ and keyCodes for numpad keys)</li>
         <li>Keybind "descriptions" are to be deprecated</li>
     </ul>
