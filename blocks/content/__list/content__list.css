@@ -5,7 +5,7 @@
   align-items: center;
   list-style: none;
   gap: 10px;
-  width: 880px;
+  max-width: 880px;
   margin-top: 36px;
   padding: 0;
 }
