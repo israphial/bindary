@@ -4,37 +4,7 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { Validator } from "../components/Validator.js";
 import { Timer } from "../components/Timer.js";
 import { PopupDelete } from "../components/PopupDelete.js";
-
-/*
-    TODO:
-    
-    Issues/bugs:
-      **-** link should be changed to be an action instead of its current setup
-        - the 'none' option will need to be removed for actions, and the <select> tag will need to be required
-        - make the link input appear below the select element if 'link' option is selected, and make it required
-      - New bind popup: when an action other than none is selected, the link input needs to be disabled and cleared
-      - No way to create submenus: selecting "submenu" as an action should do something to allow the user to add links to a submenu tied to the user's designated key
-      - Validators don't work properly for most fields currently, finish setting this up
-      - Popup open/close anims don't work; unknown cause
-      - Popup close buttons do nothing; need to tie them to closePopup in setEventListeners
-
-    
-    Features/plans:
-
-    - UI Reactions
-      - UI reacts to changes more. Pressing N pulses or emphasizes the list container describing what N does, for instance. 
-      - Timer additions have an animation, drawing the user's eyes to the element on the screen. Perhaps a floating popup could appear for a few seconds saying "timer added!"
-
-    - Github Pages pre-setup
-      - Clean up and organize Keybind.js
-      - Finish new bind functionality, make sure to handle for submenus in the form too
-      - Submenu creation functionality
-          - Make binds removable
-          - Set up a way to cache the presetHotkeysArray and fetch it on load; "new users" should see the preset hotkeys array. Basically, clean slate until you've made binds
-          - removing a bind should remove it from the cached array resource too, so that it's not there on reload
-      - First time visit popup
-
-*/
+import { PopupOptions } from "../components/PopupOptions.js";
 
 // Constants
 //---------------------------------
@@ -88,6 +58,9 @@ const actionCallback = (actionInformation) => {
   if (actionObject.type == "delete") {
     deleteKeybindPopup.setCurrentKeybinds(currentInstantiatedKeybinds);
     deleteKeybindPopup.openPopup();
+  }
+  if (actionObject.type == "options") {
+    optionsPopup.openPopup();
   }
 };
 
@@ -215,6 +188,13 @@ const deleteKeybindPopup = new PopupDelete(
   }
 );
 deleteKeybindPopup.setEventListeners();
+
+const optionsPopup = new PopupOptions(
+  consts.optionsPopup,
+  clearOtherKeybinds,
+  restoreOtherKeybinds
+);
+optionsPopup.setEventListeners();
 
 function instantiatePresetKeybinds() {
   consts.presetHotkeysArray.forEach((keybindObject) => {

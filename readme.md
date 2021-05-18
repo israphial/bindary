@@ -50,7 +50,17 @@ The Bindary</h1>
     <li>First visit popups showing the user how to use the tool</li>
     <li>Popup that displays on mobile devices informing user that this app is built for computers and may not function properly on their device</li>
     <li>"Haptic animations" - user interaction with the page performs visual cues. Eg., pressing a listed key flashes the associated list descriptor</li>
-    <li>Footer with links to github repo and other projects</li>
+    <li>Footer with github repo button (link) and other projects</li>
+    <li>Allow existing keybinds to be rebound to new keys</li>
+</ul>
+
+<h2>Possibly Planned Features</h2>
+<ul>
+    <li>Multi-key keybinds. Eg. Pressing t and w at the same time can be a keybind that you assign like any other keybind. https://stackoverflow.com/questions/5203407/how-to-detect-if-multiple-keys-are-pressed-at-once-using-javascript</li>
+    <li>If multi-keybinds end up being a feature, be sure to compare them against system key combinations (eg. ctrl+alt+del) to make sure users don't accidentally make keybinds that trigger non-browser actions</li>
+    <li>Keybind for Twitter to open a Tweet modal (allowing you to post on Twitter). A popup opens, you type your desired tweet, and when submitted, query parameters are used to turn the message into a url (eg. https://twitter.com/intent/tweet?text=this%20is%20a%20test%20tweet), then window.open() that url to post the tweet.</li>
+    <li></li>
+    <li></li>
 </ul>
 
 <h2>Known Issues</h2>
@@ -61,4 +71,5 @@ The Bindary</h1>
         <li>Live form validation isn't enabled fully (won't stop the user from submitting an invalid form)</li>
         <li>Giving the link field a link without 'http://' or 'https://' and then opening that link will open to a null page, a protocol needs to be appended to the address internally if there isn't one</li>
         <li>Popup styles haven't been updated to match the new global theme</li>
+        <li>number row and numpad return the same key when they should return different keys (see https://keycode.info/ and keyCodes for numpad keys)
     </ul>

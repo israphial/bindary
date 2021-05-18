@@ -3,5 +3,5 @@
   opacity: 1;
   display: flex;
   z-index: 2;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.3s linear;
 }

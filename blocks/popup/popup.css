@@ -3,6 +3,8 @@
 @import url("__description/popup__description.css");
 @import url("__button-span/popup__button-span.css");
 @import url("__error/popup__error.css");
+@import url("__span/popup__span.css");
+@import url("__action-button/popup__action-button.css");
 @import url("__overlay/popup__overlay.css");
 
 .popup {
@@ -25,5 +27,5 @@
   opacity: 0;
   visibility: hidden;
 
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }

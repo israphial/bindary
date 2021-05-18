@@ -1,0 +1,16 @@
+.popup__action-button {
+  background-color: black;
+  color: white;
+  outline: none;
+  border: none;
+  margin: 10px auto;
+  display: block;
+  padding: 6px 30px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.popup__action-button:focus {
+  outline: 1px solid #23874b;
+  outline-offset: 5px;
+}

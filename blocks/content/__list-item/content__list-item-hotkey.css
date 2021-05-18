@@ -1,9 +1,9 @@
 @keyframes slideInFromLeft {
   0% {
-    transform: translateX(-300%);
+    transform: translateY(-300%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
@@ -17,15 +17,14 @@
 }
 
 .content__list-item-hotkey {
-  /*the ball*/
   position: absolute;
   z-index: 3;
   background-color: #23874b;
   border: 5px solid #202020;
   width: 36px;
   height: 36px;
-  top: -12%;
-  left: -12px;
+  top: -50%;
+  left: 34%;
   border-radius: 27px;
   text-align: center;
   line-height: 34px;

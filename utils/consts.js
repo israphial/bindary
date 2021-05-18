@@ -30,6 +30,16 @@ export const presetHotkeysArray = [
     protected: true,
   },
   {
+    title: "App options",
+    keyBind: "o",
+    description: "App options",
+    action: {
+      type: "options",
+      body: "",
+    },
+    protected: true,
+  },
+  {
     title: "Social media menu",
     keyBind: "f",
     description: "Social media submenu",
@@ -260,3 +270,5 @@ export const newKeybindPopup = document.querySelector(
 export const newTimerPopup = document.querySelector(".popup_type_add-timer");
 
 export const deleteKeybindPopup = document.querySelector(".popup_type_delete");
+
+export const optionsPopup = document.querySelector(".popup_type_options");

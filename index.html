@@ -36,7 +36,16 @@
         </main>
 
         <footer class="footer">
+            <ul class="footer__link-list">
+                <li class="footer__link-list-item">
+                    <a href="https://github.com/israphial/bindary" class="footer__link" target="_blank">
+                        <span class="footer__link-list-title">Visit my Github</span>
+                        <img src="./images/github.svg" alt="My Github" class="footer__link-list-image">
+                    </a>
+                </li>
+            </ul>
         </footer>
+
         <div class="popup__overlay">
         <div class="popup popup_type_information">
             <span class="popup__button-span">Esc</span>
@@ -88,6 +97,14 @@
                 <span class="form__error" id="form__input_type_add-timer-error"></span>
                 <button class="form__save-button form__save-button_type_add-timer" type="submit" aria-label="Save">Start</button>
             </form>
+        </div>
+
+        <div class="popup popup_type_options">
+            <span class="popup__button-span">Esc</span>
+            <button class="popup__close-button"></button>
+            <h2 class="popup__header">App options</h2>
+            <span class="popup__span">Warning: this action cannot be undone!</span>
+            <button class="popup__action-button">Reset Keybinds</button>
         </div>
     </div>
         <template class="template_type_popup">

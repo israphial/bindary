@@ -1,0 +1,11 @@
+.footer__link-list-image {
+  display: inline;
+  width: 18px;
+  height: 18px;
+  margin-bottom: -4px;
+  margin-left: 4px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+}
