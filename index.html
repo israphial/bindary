@@ -72,11 +72,11 @@
             <form action="#" name="add-keybind" class="form form_type_add-keybind" novalidate>
                 <input type="text" class="form__input form__input_type_add-keybind-key" id="form__input_type_add-keybind-key" placeholder="Key" name="keyBind" required maxlength=1>
                 <span class="form__error" id="form__input_type_add-keybind-key-error"></span>
-                <input type="text" class="form__input form__input_type_add-keybind-link" id="form__input_type_add-keybind-link" placeholder="Link" name="link" required minlength=2 maxlength=512>
+                <input type="text" class="form__input form__input_type_add-keybind-link" id="form__input_type_add-keybind-link" placeholder="Link" name="link" minlength=2 maxlength=512>
                 <span class="form__error" id="form__input_type_add-keybind-link-error"></span>
                 <input type="text" class="form__input form__input_type_add-keybind-title" id="form__input_type_add-keybind-title" placeholder="Title" name="title" required minlength=2 maxlength=48>
                 <span class="form__error" id="form__input_type_add-keybind-title-error"></span>
-                <input type="text" class="form__input form__input_type_add-keybind-description" id="form__input_type_add-keybind-description" placeholder="Description" name="description" required>
+                <input type="text" class="form__input form__input_type_add-keybind-description" id="form__input_type_add-keybind-description" placeholder="Description" name="description" required maxlength="128">
                 <span class="form__error" id="form__input_type_add-keybind-description-error"></span>
                 <label for="action-select" class="form__label form__label_type_select">Special action: </label>
                 <select id="action-select" name="action" class="form__input form__input_type_add-keybind-action" required>
