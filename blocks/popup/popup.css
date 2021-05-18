@@ -20,12 +20,12 @@
   background-color: white;
   color: black;
   width: 400px;
-  max-height: 550px;
+  max-height: 0px; /* this and overflow are used to ensure that the animations work correctly */
+  overflow: hidden;
   border-radius: 12px;
 
-  /* anims */
   opacity: 0;
   visibility: hidden;
 
-  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+  transition: visibility 0s linear 0.3s, opacity 0.3s, max-height 0.3s linear;
 }
