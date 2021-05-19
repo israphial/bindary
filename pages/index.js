@@ -1,4 +1,5 @@
 import * as consts from "../utils/consts.js";
+import presetHotkeysArray from "../utils/presets.js";
 import { Keybind } from "../components/Keybind.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { Validator } from "../components/Validator.js";
@@ -18,6 +19,23 @@ const timerTemplate = document.querySelector(".template_type_timer");
 
 // Callbacks and helpers
 //---------------------------------
+
+const restoreToPresetKeybinds = () => {
+  consts.presetHotkeysArray.length = 0;
+  currentInstantiatedKeybinds.length = 0;
+  consts.presetHotkeysArray.push(...presetHotkeysArray);
+  clearOtherKeybinds();
+  removeKeybindListItems();
+  instantiatePresetKeybinds();
+  optionsPopup.closePopup();
+};
+
+const removeKeybindListItems = () => {
+  const listItems = Array.from(
+    document.querySelectorAll(".content__list-item")
+  );
+  listItems.forEach((listItem) => listItem.remove());
+};
 
 const clearOtherKeybinds = () => {
   currentInstantiatedKeybinds.forEach((keybindClass) => {
@@ -66,7 +84,6 @@ const actionCallback = (actionInformation) => {
 
 const deleteKeybindCallback = (keybindObject) => {
   const listItems = document.querySelectorAll(".content__list-item-hotkey");
-  // receives the assoc keybind object from PopupDelete, use this to delete the assoc. keybind, remove from arrays, edit cached array, remove from dom, remove listener for this keybind
   if (keybindObject !== undefined) {
     const keybindToDelete = keybindObject;
 
@@ -95,15 +112,6 @@ const deleteKeybindCallback = (keybindObject) => {
       `Error: keybindObject is an unexpected value (should be equal to a Keybind object): ${keybindObject}`
     );
   }
-  /*
-    1. delete keybind object from currentInstantiatedKeybinds - done
-    2. delete keybind object from consts.presetHotkeysArray - done
-    3. edit cached array
-    4. remove listener for this keybind - done
-    5. delete this keybind instance from memory - done?
-    6. remove associated list item from dom - done
-    7. send updated arrays to wherever they're needed in order to "reload" things
-  */
 };
 
 const renderInformation = ({ keybindObject }) => {
@@ -192,7 +200,8 @@ deleteKeybindPopup.setEventListeners();
 const optionsPopup = new PopupOptions(
   consts.optionsPopup,
   clearOtherKeybinds,
-  restoreOtherKeybinds
+  restoreOtherKeybinds,
+  restoreToPresetKeybinds
 );
 optionsPopup.setEventListeners();
 

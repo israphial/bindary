@@ -144,7 +144,7 @@ export const presetHotkeysArray = [
       },
       {
         title: "Soundcloud",
-        keyBind: "s",
+        keyBind: "c",
         description: "Soundcloud",
         link: "https://www.soundcloud.com",
       },

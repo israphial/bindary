@@ -15,8 +15,7 @@ The Bindary</h1>
     <ul>
         <li>Open Link</li>
         <li>Make New Keybind</li>
-        <li>Start a New Timer</li>
-        <li>Rebind Timer Key</li>
+        <li>Bind New Timer Key</li>
     </ul>
     I have plans to create more user-bindable actions and features, some of which are listed below, in the Planned Features section. There will likely be more actions in the Chrome extension version, as there's a lot that a user may want to do on any given page. 
 </p>
@@ -50,6 +49,8 @@ The Bindary</h1>
     <li>Popup that displays on mobile devices informing user that this app is built for computers and may not function properly on their device</li>
     <li>"Haptic animations" - user interaction with the page performs visual cues. Eg., pressing a listed key flashes the associated list descriptor</li>
     <li>Improved popup styles, especially submenu popup</li>
+    <li>Timer notification will make a distinct sound as well as notify user that the timer is up</li>
+    <li>Ability to label timers; label will appear in the "timer complete" notification so the user knows which timer has finished</li>
 </ul>
 
 <h2>Possibly Planned Features</h2>
@@ -57,14 +58,21 @@ The Bindary</h1>
     <li>Multi-key keybinds. Eg. Pressing t and w at the same time can be a keybind that you assign like any other keybind. https://stackoverflow.com/questions/5203407/how-to-detect-if-multiple-keys-are-pressed-at-once-using-javascript</li>
     <li>If multi-keybinds end up being a feature, compare them against system key combinations (eg. ctrl+alt+del) to make sure users don't accidentally make keybinds that trigger non-browser actions</li>
     <li>New Action: Twitter Post. Open a Tweet modal (allowing you to post on Twitter). A popup opens, you type your desired tweet, and when submitted, query parameters are used to turn the message into a url (eg. https://twitter.com/intent/tweet?text=this%20is%20a%20test%20tweet), then that url opens to post the tweet.</li>
+    <li>Theme picker in options</li>
+    <li>Ability to set custom background in options</li>
+    <li>Make timers pause-able</li>
 </ul>
 
 <h2>Known Issues</h2>
     <ul>
+        <li>Keypresses occasionally don't work at "base state" when they should. Cause is unclear. Pressing esc or clicking on window fixes it</li>
         <li>Timer input doesn't actually stop input at maxlength</li>
         <li>Giving the timer decimals will round the timer down to the nearest minute instead of handling for seconds</li>
         <li>Header navbar links lead nowhere (placeholders)</li>
         <li>Some popup styles haven't been updated to match the new global theme</li>
         <li>Number row and numpad return the same key when they should return different keys (see https://keycode.info/ and keyCodes for numpad keys)</li>
         <li>Keybind "descriptions" are to be deprecated</li>
+        <li>Vertical styling for timer container needs to be adjusted to line up properly with existing content</li>
+        <li>timer container should not push keybinds displays over, should be removed from element flow</li>
+        <li>(internal) .bind(this) is overused in Timer class, need to do an optimization and organization pass to improve the code</li>
     </ul>

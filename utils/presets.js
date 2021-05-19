@@ -1,37 +1,48 @@
 export const presetHotkeysArray = [
   {
-    title: "google Search",
-    keyBind: "s",
-    description: "Google search",
-    action: {
-      type: "Javascript event",
-      body:
-        "const searchInput = prompt('Enter your search and press enter');window.open(`http://www.google.com/search?q=${searchInput}`)",
-    },
-  },
-  {
-    title: "New Keybind",
+    title: "New keybind",
     keyBind: "n",
     description: "Add new keybind",
     action: {
       type: "New keybind",
       body: "",
     },
+    protected: true,
   },
   {
-    title: "New Timer",
+    title: "New timer",
     keyBind: "t",
     description: "Add new timer",
     action: {
       type: "timer",
       body: "",
     },
+    protected: true,
   },
-
   {
-    title: "Social Media Menu",
+    title: "Delete a keybind",
+    keyBind: "d",
+    description: "Delete a keybind",
+    action: {
+      type: "delete",
+      body: "",
+    },
+    protected: true,
+  },
+  {
+    title: "App options",
+    keyBind: "o",
+    description: "App options",
+    action: {
+      type: "options",
+      body: "",
+    },
+    protected: true,
+  },
+  {
+    title: "Social media menu",
     keyBind: "f",
-    description: "Social Media submenu",
+    description: "Social media submenu",
     subHotkeys: [
       {
         title: "Facebook",
@@ -42,7 +53,7 @@ export const presetHotkeysArray = [
       {
         title: "FB messenger",
         keyBind: "m",
-        description: "Messenger",
+        description: "FB messenger",
         link: "https://www.facebook.com/messages/t/100000705135107/",
       },
       {
@@ -63,12 +74,6 @@ export const presetHotkeysArray = [
         description: "Reddit",
         link: "https://www.reddit.com",
       },
-      {
-        title: "Old.Reddit",
-        keyBind: "o",
-        description: "Old.Reddit",
-        link: "https://www.old.reddit.com",
-      },
     ],
   },
   {
@@ -84,7 +89,7 @@ export const presetHotkeysArray = [
     link: "https://www.evernote.com/Login.action",
   },
   {
-    title: "Entertainment Menu",
+    title: "Entertainment menu",
     keyBind: "y",
     description: "Entertainment submenu",
     subHotkeys: [
@@ -95,7 +100,7 @@ export const presetHotkeysArray = [
         link: "https://www.youtube.com/",
       },
       {
-        title: "Youtube Subscriptions",
+        title: "Youtube subscriptions",
         keyBind: "s",
         description: "Youtube subscriptions",
         link: "https://www.youtube.com/feed/subscriptions",
@@ -127,7 +132,7 @@ export const presetHotkeysArray = [
     ],
   },
   {
-    title: "Music Menu",
+    title: "Music menu",
     keyBind: "m",
     description: "Music submenu",
     subHotkeys: [
@@ -139,30 +144,17 @@ export const presetHotkeysArray = [
       },
       {
         title: "Soundcloud",
-        keyBind: "s",
+        keyBind: "c",
         description: "Soundcloud",
         link: "https://www.soundcloud.com",
       },
     ],
   },
   {
-    title: "Code Menu",
+    title: "Code menu",
     keyBind: "c",
     description: "Code submenu",
     subHotkeys: [
-      {
-        title: "Practicum",
-        keyBind: "p",
-        description: "Practicum homepage",
-        link: "https://practicum.yandex.com/profile/web/",
-      },
-      {
-        title: "Practicum student resources",
-        keyBind: "s",
-        description: "Practicum student resources",
-        link:
-          "https://www.notion.so/Practicum-by-Yandex-Student-Guide-2919ba4a88004c0ea7884873d4dc21bf",
-      },
       {
         title: "Github",
         keyBind: "g",
@@ -184,29 +176,23 @@ export const presetHotkeysArray = [
       {
         title: "MDN",
         keyBind: "m",
-        description: "MDN Web Docs",
+        description: "MDN web docs",
         link: "https://developer.mozilla.org/en-US/",
       },
       {
         title: "Reactdocs",
         keyBind: "r",
-        description: "React Documentation",
+        description: "React docs",
         link: "https://developer.mozilla.org/en-US/",
       },
       {
-        title: "Angular Docs",
+        title: "Angular docs",
         keyBind: "a",
-        description: "Angular Docs",
+        description: "Angular docs",
         link: "https://angular.io/docs",
       },
       {
-        title: "JSFiddle",
-        keyBind: "j",
-        description: "JSFiddle",
-        link: "https://jsfiddle.net/",
-      },
-      {
-        title: "Bootstrap 5.0 Docs",
+        title: "Bootstrap 5.0 docs",
         keyBind: "b",
         description: "Bootstrap 5.0 Docs",
         link: "https://getbootstrap.com/docs/5.0/getting-started/introduction/",
@@ -216,12 +202,12 @@ export const presetHotkeysArray = [
   {
     title: "Coding Blogs/Resources",
     keyBind: "b",
-    description: "Coding Blogs/Resources",
+    description: "Coding blogs/resources",
     subHotkeys: [
       {
         title: "Hackernoon Webdev",
         keyBind: "j",
-        description: "Hackernoon Webdev",
+        description: "Hackernoon webdev",
         link: "https://hackernoon.com/tagged/web-development",
       },
       {
@@ -237,9 +223,9 @@ export const presetHotkeysArray = [
         link: "https://www.codenewbie.org/",
       },
       {
-        title: "SamanthaMing Blog",
+        title: "SamanthaMing blog",
         keyBind: "s",
-        description: "SamanthaMing Blog",
+        description: "SamanthaMing blog",
         link: "https://www.samanthaming.com/blog/",
       },
     ],
@@ -249,12 +235,6 @@ export const presetHotkeysArray = [
     keyBind: "u",
     description: "Utilities submenu",
     subHotkeys: [
-      {
-        title: "Pomodoro timer",
-        keyBind: "t",
-        description: "Tomato-timer homepage",
-        link: "https://tomato-timer.com/",
-      },
       {
         title: "Coolors.co app",
         keyBind: "c",
@@ -270,7 +250,7 @@ export const presetHotkeysArray = [
       {
         title: "W3C Markup Validator",
         keyBind: "w",
-        description: "W3C Markup validator",
+        description: "W3C markup validator",
         link: "https://validator.w3.org/",
       },
       {
@@ -282,3 +262,5 @@ export const presetHotkeysArray = [
     ],
   },
 ];
+
+export default presetHotkeysArray;
