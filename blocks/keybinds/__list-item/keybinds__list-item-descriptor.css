@@ -1,5 +1,4 @@
-.content__list-item-descriptor {
-  /* the descriptor span; most of the body of the list*/
+.keybinds__list-item-descriptor {
   position: absolute;
   display: block;
   width: 100%;

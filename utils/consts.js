@@ -272,3 +272,5 @@ export const newTimerPopup = document.querySelector(".popup_type_add-timer");
 export const deleteKeybindPopup = document.querySelector(".popup_type_delete");
 
 export const optionsPopup = document.querySelector(".popup_type_options");
+
+export const ding = new Audio("./vendor/audio/ding.mp3");

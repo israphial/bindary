@@ -1,0 +1,10 @@
+@import url("__header/keybinds__header.css");
+@import url("__description/keybinds__description.css");
+@import url("__list/keybinds__list.css");
+@import url("__list-item/keybinds__list-item.css");
+@import url("__list-item/keybinds__list-item-descriptor.css");
+@import url("__list-item/keybinds__list-item-hotkey.css");
+
+.keybinds {
+  margin: 0 auto;
+}

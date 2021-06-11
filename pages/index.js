@@ -7,11 +7,20 @@ import { Timer } from "../components/Timer.js";
 import { PopupDelete } from "../components/PopupDelete.js";
 import { PopupOptions } from "../components/PopupOptions.js";
 
+/*
+TODO:
+  - confirm that there's no memory leaks with restore to presets functionality
+  - confirm that all associated arrays are correctly being assigned and don't have unexpected references
+  - improve menu styles
+  - time for local storage
+
+*/
+
 // Constants
 //---------------------------------
 
 const currentInstantiatedKeybinds = [];
-const keybindInformationContainer = document.querySelector(".content__list");
+const keybindInformationContainer = document.querySelector(".keybinds__list");
 const addKeybindForm = document.querySelector(".form_type_add-keybind");
 const addTimerForm = document.querySelector(".form_type_add-timer");
 const timerContainer = document.querySelector(".timer-container");
@@ -32,7 +41,7 @@ const restoreToPresetKeybinds = () => {
 
 const removeKeybindListItems = () => {
   const listItems = Array.from(
-    document.querySelectorAll(".content__list-item")
+    document.querySelectorAll(".keybinds__list-item")
   );
   listItems.forEach((listItem) => listItem.remove());
 };
@@ -83,7 +92,7 @@ const actionCallback = (actionInformation) => {
 };
 
 const deleteKeybindCallback = (keybindObject) => {
-  const listItems = document.querySelectorAll(".content__list-item-hotkey");
+  const listItems = document.querySelectorAll(".keybinds__list-item-hotkey");
   if (keybindObject !== undefined) {
     const keybindToDelete = keybindObject;
 
@@ -119,9 +128,9 @@ const renderInformation = ({ keybindObject }) => {
   const hotkeyDisplay = document.createElement("span");
   const descriptorDisplay = document.createElement("span");
 
-  newDescriptor.classList.add("content__list-item");
-  hotkeyDisplay.classList.add("content__list-item-hotkey");
-  descriptorDisplay.classList.add("content__list-item-descriptor");
+  newDescriptor.classList.add("keybinds__list-item");
+  hotkeyDisplay.classList.add("keybinds__list-item-hotkey");
+  descriptorDisplay.classList.add("keybinds__list-item-descriptor");
 
   hotkeyDisplay.textContent = `${keybindObject.keyBind.toUpperCase()}`;
   descriptorDisplay.textContent = `${keybindObject.description}`;

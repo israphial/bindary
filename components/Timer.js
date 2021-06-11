@@ -1,3 +1,5 @@
+import { ding } from "../utils/consts.js";
+
 export class Timer {
   constructor(timerContainer, timerTemplate, duration) {
     this._timerContainer = timerContainer;
@@ -51,6 +53,7 @@ export class Timer {
 
   _handleTimerEnd() {
     this._deleteDisplay();
+    ding.play();
     this._makeNotification();
   }
 

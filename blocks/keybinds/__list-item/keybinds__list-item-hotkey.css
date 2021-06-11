@@ -16,7 +16,7 @@
   }
 }
 
-.content__list-item-hotkey {
+.keybinds__list-item-hotkey {
   position: absolute;
   z-index: 3;
   background-color: #23874b;

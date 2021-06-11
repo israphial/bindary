@@ -16,7 +16,7 @@
   }
 }
 
-.content__list-item {
+.keybinds__list-item {
   animation: 0.3s ease-out 1 1s forwards slideInFromLeft,
     0.3s ease-in 1 1s forwards fadeIn;
   width: 160px;

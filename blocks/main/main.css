@@ -21,5 +21,6 @@
   animation: 0.5s ease-out 1 0.7s forwards slideInFromLeft,
     0.5s ease-in 1 0.7s forwards fadeIn;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
