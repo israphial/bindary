@@ -40,7 +40,7 @@ export const presetHotkeysArray = [
     protected: true,
   },
   {
-    title: "Social media menu",
+    title: "Socials",
     keyBind: "f",
     description: "Social media submenu",
     subHotkeys: [
@@ -54,7 +54,7 @@ export const presetHotkeysArray = [
         title: "FB messenger",
         keyBind: "m",
         description: "FB messenger",
-        link: "https://www.facebook.com/messages/t/100000705135107/",
+        link: "https://www.facebook.com/messages/t/1135235079929779/",
       },
       {
         title: "Instagram",

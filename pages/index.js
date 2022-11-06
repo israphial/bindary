@@ -9,11 +9,8 @@ import { PopupOptions } from "../components/PopupOptions.js";
 
 /*
 TODO:
-  - confirm that there's no memory leaks with restore to presets functionality
-  - confirm that all associated arrays are correctly being assigned and don't have unexpected references
   - improve menu styles
-  - time for local storage
-
+  - local storage
 */
 
 // Constants
