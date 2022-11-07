@@ -30,6 +30,6 @@
   line-height: 34px;
   font-weight: bold;
   opacity: 0;
-  animation: 0.3s ease-out 1 1.5s forwards slideInFromLeft,
-    0.3s ease-in 1 1.5s forwards fadeIn;
+  animation: 0.3s ease-out 1 0.5s forwards slideInFromLeft,
+    0.3s ease-in 1 0.5s forwards fadeIn;
 }
