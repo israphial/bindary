@@ -10,6 +10,7 @@ The Bindary</h1>
 <hr>
 <p>
     THANK YOU for stopping by! If you have any suggestions or comments regarding this project, feel free to make a new issue <a href="https://github.com/israphial/bindary/issues">HERE.</a>
+    <br>
     <a style="display: block; color: #23874b;" href="https://israphial.github.io/bindary/">Click here to try the Bindary out!</a>
     The Bindary allows the user to navigate around the internet using only their keyboard. When the page first loads, several keybinds are set and are displayed with descriptions. Pressing a listed key performs its associated action. At the moment, the available actions are:
     <ul>

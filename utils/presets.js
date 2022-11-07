@@ -1,8 +1,10 @@
-export const presetHotkeysArray = [
+// This array is currently the default binds object. In the future, the intent is to copy this object into LocalStorage and edit the LocalStorage version whenever user edits binds.
+
+export const presetStarter = [
   {
     title: "New keybind",
     keyBind: "n",
-    description: "Add new keybind",
+    description: "New Keybind",
     action: {
       type: "New keybind",
       body: "",
@@ -10,9 +12,9 @@ export const presetHotkeysArray = [
     protected: true,
   },
   {
-    title: "New timer",
+    title: "Start Timer",
     keyBind: "t",
-    description: "Add new timer",
+    description: "Start Timer",
     action: {
       type: "timer",
       body: "",
@@ -20,9 +22,9 @@ export const presetHotkeysArray = [
     protected: true,
   },
   {
-    title: "Delete a keybind",
+    title: "DeleteKeybind",
     keyBind: "d",
-    description: "Delete a keybind",
+    description: "Delete Keybind",
     action: {
       type: "delete",
       body: "",
@@ -30,9 +32,9 @@ export const presetHotkeysArray = [
     protected: true,
   },
   {
-    title: "App options",
+    title: "Options",
     keyBind: "o",
-    description: "App options",
+    description: "Options",
     action: {
       type: "options",
       body: "",
@@ -40,9 +42,9 @@ export const presetHotkeysArray = [
     protected: true,
   },
   {
-    title: "Social media menu",
+    title: "Socials",
     keyBind: "f",
-    description: "Social media submenu",
+    description: "Socials",
     subHotkeys: [
       {
         title: "Facebook",
@@ -51,10 +53,10 @@ export const presetHotkeysArray = [
         link: "https://www.facebook.com",
       },
       {
-        title: "FB messenger",
+        title: "Messenger",
         keyBind: "m",
-        description: "FB messenger",
-        link: "https://www.facebook.com/messages/t/100000705135107/",
+        description: "Messenger",
+        link: "https://www.facebook.com/messages/t/100000983576336/",
       },
       {
         title: "Instagram",
@@ -89,9 +91,15 @@ export const presetHotkeysArray = [
     link: "https://www.evernote.com/Login.action",
   },
   {
-    title: "Entertainment menu",
+    title: "Spotify",
+    keyBind: "s",
+    description: "Spotify",
+    link: "https://open.spotify.com/",
+  },
+  {
+    title: "Entertainment",
     keyBind: "y",
-    description: "Entertainment submenu",
+    description: "Entertainment",
     subHotkeys: [
       {
         title: "Youtube",
@@ -262,5 +270,3 @@ export const presetHotkeysArray = [
     ],
   },
 ];
-
-export default presetHotkeysArray;

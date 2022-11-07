@@ -1,5 +1,5 @@
 import * as consts from "../utils/consts.js";
-import presetHotkeysArray from "../utils/presets.js";
+import * as presets from "../utils/presets.js";
 import { Keybind } from "../components/Keybind.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { Validator } from "../components/Validator.js";
@@ -212,7 +212,7 @@ const optionsPopup = new PopupOptions(
 optionsPopup.setEventListeners();
 
 function instantiatePresetKeybinds() {
-  consts.presetHotkeysArray.forEach((keybindObject) => {
+  presets.presetStarter.forEach((keybindObject) => {
     const keybind = new Keybind(
       { keybindObject },
       clearOtherKeybinds,
